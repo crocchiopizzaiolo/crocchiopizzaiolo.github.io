@@ -133,3 +133,13 @@ section { padding: 64px 0; }
 @media (min-width: 900px) { .float-tel { display: none; } .site-footer { padding-bottom: 40px; } }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .dish img { transition: none; } }
+
+/* よくある質問 */
+.faq { padding: 64px 0; }
+.faq-list { display: grid; gap: 10px; max-width: 760px; }
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 0 18px; }
+.faq-item summary { cursor: pointer; font-weight: 700; padding: 14px 0; list-style: none; position: relative; padding-right: 28px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 0; top: 12px; color: var(--ember); font-size: 20px; line-height: 1; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p { margin: 0 0 16px; color: var(--muted); }

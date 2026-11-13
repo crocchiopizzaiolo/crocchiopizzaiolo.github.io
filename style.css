@@ -11,8 +11,8 @@
   --line: #e4d9c8;
   --basil: #4c6b3c;
   --radius: 14px;
-  --serif: "Shippori Mincho", "Yu Mincho", serif;
-  --sans: "Zen Kaku Gothic New", "Yu Gothic", "Hiragino Sans", sans-serif;
+  --serif: "LINE Seed JP", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;  /* 2026-11-13 QRメニューと同じ文字に */
+  --sans: "LINE Seed JP", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
   --it: "Cormorant Garamond", serif;
 }
 * { box-sizing: border-box; }
@@ -143,3 +143,39 @@ section { padding: 64px 0; }
 .faq-item summary::after { content: "+"; position: absolute; right: 0; top: 12px; color: var(--ember); font-size: 20px; line-height: 1; }
 .faq-item[open] summary::after { content: "−"; }
 .faq-item p { margin: 0 0 16px; color: var(--muted); }
+
+/* フッターの SNS（丸いアイコン。2026-11-13） */
+.sns-icons { list-style: none; padding: 0; margin: 0 0 16px; display: flex; justify-content: center; gap: 24px; }
+.sns-icons a { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-decoration: none; color: var(--dough); }
+.sns-icon { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; transition: transform .1s; }
+.sns-icons a:hover .sns-icon { transform: translateY(-2px); }
+.sns-icons a:active .sns-icon { transform: scale(.94); }
+.sns-icon svg { width: 26px; height: 26px; }
+.sns-icon.ig { color: #fff; background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.sns-icon.x { color: #fff; background: #000; box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
+.sns-icon.x svg { width: 22px; height: 22px; }
+.sns-icon.note-i { color: #000; background: #fff; font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
+.blog-link { margin: 0 0 12px; font-size: 13px; }
+.blog-link a { color: var(--dough); }
+.site-footer .blog-link { opacity: 1; }
+
+/* ご予約：QR メニューの「RESERVATION」ボタンと同じ形・色（2026-11-13） */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.reserve { background: var(--dough); color: var(--ink); }
+.reserve-box { width: min(448px, 100% - 32px); }
+.reserve p { color: var(--muted); margin-top: 16px; }
+.call { position: relative; display: flex; align-items: center; gap: 12px; background: #3d2416; color: #fff; border-radius: 24px; padding: 16px 20px; text-align: left; text-decoration: none; box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1), 0 0 0 1px rgb(0 0 0 / .1); transition: transform .1s; }
+.call:active { transform: scale(.98); }
+.call::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(217, 181, 74, .5); border-radius: 20px; pointer-events: none; }
+.call-text { flex: 1; min-width: 0; }
+.call-kicker { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .25em; color: #e6c66a; }
+.call-main { display: block; font-size: 16px; font-weight: 700; line-height: 1.4; margin-top: 2px; }
+.call-num { display: block; font-size: 16px; font-weight: 700; opacity: .85; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.call-arrow { width: 24px; height: 24px; flex: none; color: #e6c66a; animation: call-nudge 1.6s ease-in-out infinite; }
+.call-btn { position: relative; flex: none; width: 56px; height: 56px; border-radius: 50%; background: #1ea3ad; color: #fff; display: grid; place-items: center; box-shadow: 0 9px 0 #003b38, 0 14px 18px rgb(0 0 0 / .3), inset 0 3px 0 rgb(255 255 255 / .3); transition: transform .07s ease-out, box-shadow .07s ease-out; }
+.call:active .call-btn { transform: translateY(8px); box-shadow: 0 1px 0 #003b38, 0 2px 4px rgb(0 0 0 / .3), inset 0 3px 0 rgb(255 255 255 / .2); }
+.call-btn svg { width: 28px; height: 28px; }
+.call-ring { position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 2px #1ea3ad; animation: call-ring 1.8s ease-out infinite; }
+@keyframes call-nudge { 0%, 60%, 100% { transform: none; } 30% { transform: translateX(4px); } }
+@keyframes call-ring { from { transform: scale(1); opacity: .7; } to { transform: scale(1.5); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .call-arrow, .call-ring { animation: none; } }

@@ -179,3 +179,12 @@ section { padding: 64px 0; }
 @keyframes call-nudge { 0%, 60%, 100% { transform: none; } 30% { transform: translateX(4px); } }
 @keyframes call-ring { from { transform: scale(1); opacity: .7; } to { transform: scale(1.5); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .call-arrow, .call-ring { animation: none; } }
+
+/* プライバシーポリシー（2026-11-13） */
+.legal { width: min(760px, 100% - 32px); padding: 48px 0 64px; }
+.legal h2 { font-size: 18px; font-weight: 800; margin: 32px 0 8px; }
+.legal p, .legal li { font-size: 15px; }
+.legal ul { padding-left: 1.3em; margin: 0; }
+.legal a { color: inherit; }
+.legal-date { margin-top: 32px; color: var(--muted); font-size: 13px; }
+.privacy-link a { color: var(--dough); }
